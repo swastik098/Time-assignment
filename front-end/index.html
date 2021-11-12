@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>TIME|Currernt & Breaking News</title>
+       <link rel="stylesheet" href="fonts/css/all.css">
+       <style>
+           header{
+           
+           }
+           #my{
+               margin-left: 5px;
+               color:red;
+           }
+           #YO{
+               font-size: x-small;
+               margin-left: 60px;
+           }
+           #container{
+               display: grid;
+               grid-template-columns: 1fr 10fr 1fr;
+               margin-top: 15px;
+           }
+           #look{
+               background-color:lightgray;
+               text-align: center;
+               color: red;
+               font-family: sans-serif;
+               padding-bottom: 50px;
+               padding-top: 10px;
+               padding-right: 20px;
+               padding-left: 20px;
+
+           }
+           #cool{
+               display: grid;
+               grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
+               color: black;
+               font-size: 10px;
+           }
+           #ok{
+                margin-bottom: 10px;
+               text-decoration: underline  red;
+           }
+           a{
+               text-decoration: none;
+               color: black;
+             
+           }
+           a:hover{
+               color: darkcyan;
+           }
+         
+       </style>
+       <script>
+
+        fetch('http://localhost:7000/time').then((apidata)=>{
+            console.log(apidata)
+            return apidata.json()
+        }).then((actualdata)=>{
+         
+          document.getElementById("api1").innerHTML = actualdata[0].title
+          document.getElementById("api2").innerHTML = actualdata[1].title
+          document.getElementById("api3").innerHTML = actualdata[2].title
+          document.getElementById("api4").innerHTML = actualdata[3].title
+          document.getElementById("api5").innerHTML = actualdata[4].title
+
+        
+
+
+        }).catch((err)=>{
+             console.log(err)
+        })
+     
+     
+       </script>
+    </head>
+    <body>
+        <header>
+          <span  class="fas fa-align-justify"></span>
+          <a href="#"><span id="my"">TIME</span></a>
+          <a href="#"><span id="YO">AMERICA MUST CHANGE</span></a>
+         <a href="#"> <span id="YO" >RACISM AND COVID-19</span> </a>
+          <a href="#"><span id="YO">INEQULITY</span></a>
+         <a href="#"> <span id="YO">BLACK DESABLED AND AT RISK</span></a>
+         <a href="#"> <span id="YO">NEWSLETTER</span></a>
+        </header>
+        <hr>
+        <div id="container">
+        <div>
+
+        </div>
+        <div id="look">
+          <div id=""> LATEST STRORIES</div>
+          <div id="cool">
+             <div>
+                 <div id="ok">1</div>
+                 <div id="api1"></div>
+                
+             </div>
+
+             <div>
+                 <div id="ok">2</div>    
+                 <div id="api2"></div>
+                
+            </div>
+             <div> 
+                 <div id="ok">3</div>
+                 <div id="api3"></div>
+                 
+             </div>
+             <div>
+                 <div id="ok">4</div>
+                 <div id="api4"></div>
+           
+             </div>
+             <div>
+                 <div id="ok">5</div>
+                 <div id="api5"></div>
+                 
+             </div>
+          
+          </div>
+          <br>
+          <br>
+          <br>
+        <div>
+
+        </div>
+        </div>
+    </body>
+</html>
